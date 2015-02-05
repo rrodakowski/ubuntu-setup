@@ -24,7 +24,7 @@ sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl p
 php5enmod mcrypt
 
 #other software I use
-sudo apt-get -y install curl dropbox google-chrome-stable gimp pip  
+sudo apt-get -y install curl dropbox google-chrome-stable gimp pip irsii geany 
 # not necessary if using a droplet on digital ocean
 #sudo apt-get -y install openssh-server openssh-client
 
