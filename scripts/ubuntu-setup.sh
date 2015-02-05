@@ -2,9 +2,9 @@
 
 #Instructions to use this script 
 #
-#chmod +x SCRIPTNAME.sh
+# make sure the script is executable
 #
-#sudo ./SCRIPTNAME.sh
+#sudo ./ubuntu-setup.sh
 
 echo "###################################################################################"
 echo "Please be Patient: Installation will start now.......and it will take some time :)"
@@ -66,13 +66,8 @@ sudo chgrp appadmin /app-bin
 sudo chown appadmin /app-bin
 sudo chown appadmin /app-data
 
-# scripts
-mkdir ~/scripts
-cp -ar ./data/scripts/* ~/scripts/
-chmod +x ~/scripts/*
-
 # dotfiles
 shopt -s dotglob
-cp -a ./data/dotfiles/* ~
+cp -a ../data/* ~
 
 echo -e "\n"
