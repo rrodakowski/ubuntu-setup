@@ -2,9 +2,11 @@
 
 #Instructions to use this script 
 #
-#chmod +x SCRIPTNAME.sh
+# make sure the script is executable
+# modify mysql passwords
+# comment out packages that you may or may not need
 #
-#sudo ./SCRIPTNAME.sh
+#sudo ./ubuntu-setup.sh
 
 echo "###################################################################################"
 echo "Please be Patient: Installation will start now.......and it will take some time :)"
@@ -24,12 +26,18 @@ sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl p
 php5enmod mcrypt
 
 #other software I use
-sudo apt-get -y install curl dropbox google-chrome-stable gimp pip irsii geany 
-# not necessary if using a droplet on digital ocean
+sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
+
+# ssh not necessary if using a droplet on digital ocean
 #sudo apt-get -y install openssh-server openssh-client
 
+#install irssi
+sudo apt-get -y install irssi irssi-scripts screen openssh-server
+
+#TODO: work on python installation
 #python installs using pip
-sudo pip install oauth2
+#sudo apt-get install pip
+#sudo pip install oauth2
 
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
@@ -66,13 +74,8 @@ sudo chgrp appadmin /app-bin
 sudo chown appadmin /app-bin
 sudo chown appadmin /app-data
 
-# scripts
-mkdir ~/scripts
-cp -ar ./data/scripts/* ~/scripts/
-chmod +x ~/scripts/*
-
 # dotfiles
 shopt -s dotglob
-cp -a ./data/dotfiles/* ~
+cp -a ../data/* ~
 
 echo -e "\n"
