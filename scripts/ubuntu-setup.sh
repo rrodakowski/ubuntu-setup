@@ -25,8 +25,9 @@ sudo apt-get -y --force-yes upgrade
 sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-cli php5-dev mysql-client
 php5enmod mcrypt
 
-#other software I use
+#other software I use for a desktop installation
 sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
+sudo apt-get -y install fuse exfat-fuse
 
 # ssh not necessary if using a droplet on digital ocean
 #sudo apt-get -y install openssh-server openssh-client
