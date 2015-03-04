@@ -27,6 +27,7 @@ php5enmod mcrypt
 
 #other software I use for a desktop installation
 sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
+#allow me to read exfat file system (external usb harddrive)
 sudo apt-get -y install fuse exfat-fuse
 
 # ssh not necessary if using a droplet on digital ocean
@@ -34,6 +35,12 @@ sudo apt-get -y install fuse exfat-fuse
 
 #install irssi
 sudo apt-get -y install irssi irssi-scripts screen openssh-server
+
+#security packages
+sudo apt-get -y install fail2ban
+
+#mail
+sudo apt-get -y install postfix
 
 #TODO: work on python installation
 #python installs using pip
@@ -64,8 +71,10 @@ fi
 
 #add users
 sudo adduser appadmin
+mkdir /home/appadmin/.ssh
+chmod 700 /home/deploy/.ssh
 
-# folders
+# app folders
 sudo mkdir /app-data
 sudo mkdir /app-bin
 
