@@ -42,11 +42,11 @@ sudo apt-get -y install fail2ban
 #mail
 sudo apt-get -y install postfix
 
-#TODO: work on python installation
-#python installs using pip
-#sudo apt-get install pip
-#sudo pip install oauth2
+#Installs for personal python applications
+sudo apt-get -y install python-pip
 sudo apt-get -y install imagemagick
+#python installs using pip
+sudo pip install oauth2
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
