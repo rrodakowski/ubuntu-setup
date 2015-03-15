@@ -46,7 +46,7 @@ sudo apt-get -y install postfix
 #python installs using pip
 #sudo apt-get install pip
 #sudo pip install oauth2
-
+sudo apt-get -y install imagemagick
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
