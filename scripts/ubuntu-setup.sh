@@ -47,6 +47,8 @@ sudo apt-get -y install python-pip
 sudo apt-get -y install imagemagick
 #python installs using pip
 sudo pip install oauth2
+sudo pip install pygame
+sudo pip install kezmenu
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
