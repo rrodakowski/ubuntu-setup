@@ -17,8 +17,9 @@ sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable ma
 sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
 
 #Update the repositories
-sudo apt-get -y --force-yes update
-sudo apt-get -y --force-yes upgrade
+sudo apt-get -y --force-yes update # Fetches the list of available updates 
+sudo apt-get -y --force-yes upgrade # Strictly upgrades the current packages 
+sudo apt-get dist-upgrade # Installs distribution updates (new ones), may install new pakcages or unintstall to satisfy dependecies i(careful)
 
 ###############################
 ##### LAMP Software ###########
@@ -26,8 +27,8 @@ sudo apt-get -y --force-yes upgrade
 
 #Apache, Php, MySQL and required packages installation
 
-sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-cli php5-dev mysql-client
-php5enmod mcrypt
+sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-cli php5-dev mysql-client php5-tidy
+php5enmod mcrypt # enables mcrypt for php
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
@@ -95,6 +96,8 @@ sudo pip install kezmenu
 sudo adduser appadmin
 mkdir /home/appadmin/.ssh
 chmod 700 /home/appadmin/.ssh
+touch /home/appadmin/.ssh/authorized_keys
+chmod 600 /home/appadmin/.ssh/authorized_keys
 
 # copy dotfiles
 shopt -s dotglob
