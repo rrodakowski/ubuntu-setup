@@ -8,9 +8,9 @@
 #
 #sudo ./ubuntu-setup.sh
 
-echo "###################################################################################"
-echo "Please be Patient: Installation will start now.......and it will take some time :)"
-echo "###################################################################################"
+###############################
+##### Repo additions/updates ## 
+###############################
 
 #Add Repositories
 sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main"
@@ -20,35 +20,14 @@ sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -s
 sudo apt-get -y --force-yes update
 sudo apt-get -y --force-yes upgrade
 
+###############################
+##### LAMP Software ###########
+###############################
+
 #Apache, Php, MySQL and required packages installation
 
 sudo apt-get -y install apache2 php5 libapache2-mod-php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-cli php5-dev mysql-client
 php5enmod mcrypt
-
-#other software I use for a desktop installation
-sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
-#allow me to read exfat file system (external usb harddrive)
-sudo apt-get -y install fuse exfat-fuse
-
-# ssh not necessary if using a droplet on digital ocean
-#sudo apt-get -y install openssh-server openssh-client
-
-#install irssi
-sudo apt-get -y install irssi irssi-scripts screen openssh-server
-
-#security packages
-sudo apt-get -y install fail2ban
-
-#mail
-sudo apt-get -y install postfix
-
-#Installs for personal python applications
-sudo apt-get -y install python-pip
-sudo apt-get -y install imagemagick
-#python installs using pip
-sudo pip install oauth2
-sudo pip install pygame
-sudo pip install kezmenu
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
@@ -71,10 +50,55 @@ else
    echo "Installed Services run $(tput bold)$(tput setaf 2)Sucessfully$(tput sgr0)"
 fi
 
-#add users
+###############################
+##### Desktop Software ########
+###############################
+
+#useful applications
+sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
+#allow me to read exfat file system (external usb harddrive)
+sudo apt-get -y install fuse exfat-fuse
+
+###############################
+##### Server Software #########
+###############################
+
+# ssh not necessary if using a droplet on digital ocean
+#sudo apt-get -y install openssh-server openssh-client
+
+# install irssi
+sudo apt-get -y install irssi irssi-scripts screen openssh-server
+
+# security packages
+sudo apt-get -y install fail2ban
+
+# mail
+sudo apt-get -y install postfix
+
+# git used for private git repos
+# git probably was installed to retrieve this setup script from github
+sudo apt-get -y install git
+
+# Installs for personal python applications
+sudo apt-get -y install python-pip
+sudo apt-get -y install imagemagick
+# python installs using pip
+sudo pip install oauth2
+sudo pip install pygame
+sudo pip install kezmenu
+
+###############################
+##### User & Folder Setup #####
+###############################
+
+# add users
 sudo adduser appadmin
 mkdir /home/appadmin/.ssh
-chmod 700 /home/deploy/.ssh
+chmod 700 /home/appadmin/.ssh
+
+# copy dotfiles
+shopt -s dotglob
+cp -a ../data/* /home/appadmin
 
 # app folders
 sudo mkdir /app-data
@@ -85,9 +109,5 @@ sudo chgrp appadmin /app-bin
 
 sudo chown appadmin /app-bin
 sudo chown appadmin /app-data
-
-# dotfiles
-shopt -s dotglob
-cp -a ../data/* ~
 
 echo -e "\n"
