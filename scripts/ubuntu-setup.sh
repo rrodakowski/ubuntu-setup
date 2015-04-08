@@ -87,6 +87,7 @@ sudo apt-get -y install imagemagick
 sudo pip install oauth2
 sudo pip install pygame
 sudo pip install kezmenu
+sudo pip install Pillow
 
 ###############################
 ##### User & Folder Setup #####
