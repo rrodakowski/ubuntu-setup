@@ -88,6 +88,8 @@ sudo pip install oauth2
 sudo pip install pygame
 sudo pip install kezmenu
 sudo pip install Pillow
+sudo pip install MySQL-Python
+sudo pip install feedparser
 
 ###############################
 ##### User & Folder Setup #####
