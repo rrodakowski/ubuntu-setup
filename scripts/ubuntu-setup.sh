@@ -90,6 +90,7 @@ sudo pip install kezmenu
 sudo pip install Pillow
 sudo pip install MySQL-Python
 sudo pip install feedparser
+sudo pip install Jinja2
 
 ###############################
 ##### User & Folder Setup #####
