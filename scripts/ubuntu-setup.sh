@@ -83,6 +83,8 @@ sudo apt-get -y install git
 # Installs for personal python applications
 sudo apt-get -y install python-pip
 sudo apt-get -y install imagemagick
+# used for lxml, html cleaning, and other xml processing
+sudo apt-get -y install python-lxml
 # python installs using pip
 sudo pip install oauth2
 sudo pip install pygame
