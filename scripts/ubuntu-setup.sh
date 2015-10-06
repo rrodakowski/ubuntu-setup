@@ -14,7 +14,6 @@
 
 #Add Repositories
 sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main"
-sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
 
 #Update the repositories
 sudo apt-get -y --force-yes update # Fetches the list of available updates 
@@ -56,7 +55,7 @@ fi
 ###############################
 
 #useful applications
-sudo apt-get -y install curl dropbox google-chrome-stable gimp geany terminator vim
+sudo apt-get -y install curl google-chrome-stable gimp geany terminator vim
 #allow me to read exfat file system (external usb harddrive)
 sudo apt-get -y install fuse exfat-fuse
 
@@ -92,7 +91,7 @@ sudo pip install kezmenu
 sudo pip install Pillow
 sudo pip install MySQL-Python
 sudo pip install feedparser
-sudo pip install Jinja2
+sudo pip install flask 
 
 ###############################
 ##### User & Folder Setup #####
