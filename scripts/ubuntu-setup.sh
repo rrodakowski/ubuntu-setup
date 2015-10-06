@@ -104,6 +104,7 @@ mkdir /home/appadmin/.ssh
 chmod 700 /home/appadmin/.ssh
 touch /home/appadmin/.ssh/authorized_keys
 chmod 600 /home/appadmin/.ssh/authorized_keys
+sudo adduser appadmin sudo
 
 # copy dotfiles
 shopt -s dotglob
