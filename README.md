@@ -9,7 +9,13 @@ A repository to help me setup Virtual Machines for development.
 
 Copy the contents of this repsository to a folder on your machine in which you would like spin up your vagrant instance. There is a sample vagrant file. It calls a provisioning script to setup your VM.  
 
-After Vm is running and provisioned, type "vagrant ssh" to connect.
+After Vm is running and provisioned:
+
+- vagrant ssh -- to connect
+- vagrant halt to shut down the VM(s)
+- vagrant suspend to suspend the VM(s), use vagrant resume to resume
+- vagrant status to display the status of the VM(s)
+- vagrant destroy to destroy (delete) the VM(s)
 
 After provisioning a VM, there are generally several things to do, depending on app and your personal preference:
 
