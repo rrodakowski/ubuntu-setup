@@ -99,7 +99,10 @@ sudo adduser appadmin sudo
 
 # copy dotfiles
 shopt -s dotglob
-cp -a ../data/* /home/appadmin
+cp -a /vagrant/data/* /home/appadmin
+sudo chgrp appadmin /home/appadmin/*
+sudo chown appadmin /home/appadmin/*
+cp -a /vagrant/data/* /home/vagrant
 
 # app folders
 sudo mkdir /app-data
