@@ -12,9 +12,10 @@ Copy the contents of this repsository to a folder on your machine in which you w
 After Vm is running and provisioned:
 
 - vagrant ssh -- to connect
-- vagrant halt to shut down the VM(s)
-- vagrant suspend to suspend the VM(s), use vagrant resume to resume
-- vagrant status to display the status of the VM(s)
+- vagrant reload --provision -- to reload the vm from your Vagrantfile (good for testing provisioning scripts)
+- vagrant halt -- to shut down the VM(s)
+- vagrant suspend -- to suspend the VM(s), use "vagrant resume" to resume
+- vagrant status -- to display the status of the VM(s)
 - vagrant destroy to destroy (delete) the VM(s)
 
 After provisioning a VM, there are generally several things to do, depending on app and your personal preference:
