@@ -6,7 +6,34 @@
 # modify mysql passwords
 # comment out packages that you may or may not need
 #
-#sudo ./ubuntu-setup.sh
+
+export INSTALL_HOME=/opt
+export INSTALL_DATA=/vagrant/data
+
+###############################
+#####   Functions  ############
+###############################
+
+function add_user
+{
+    echo "adding user $1"
+    sudo adduser $1 -g appadmin 
+    mkdir /home/$1/.ssh
+    chmod 700 /home/$1/.ssh
+    touch /home/$1/.ssh/authorized_keys
+    chmod 600 /home/$1/.ssh/authorized_keys
+    sudo adduser $1 sudo
+    sudo echo "$1:changeme" | sudo chpasswd
+    # copy dot files
+    shopt -s dotglob
+    cp -a $INSTALL_DATA/dotfiles/* /home/$1
+}
+
+###############################
+###############################
+#####   START OF SCRIPT  ######
+###############################
+###############################
 
 ###############################
 ##### Repo additions/updates ## 
@@ -89,29 +116,32 @@ sudo pip install flask
 ##### User & Folder Setup #####
 ###############################
 
+sudo groupadd appadmin 
 # add users
-sudo adduser appadmin
-mkdir /home/appadmin/.ssh
-chmod 700 /home/appadmin/.ssh
-touch /home/appadmin/.ssh/authorized_keys
-chmod 600 /home/appadmin/.ssh/authorized_keys
-sudo adduser appadmin sudo
+add_user appadmin 
+add_user randall 
 
 # copy dotfiles
 shopt -s dotglob
-cp -a /vagrant/data/* /home/appadmin
-sudo chgrp appadmin /home/appadmin/*
-sudo chown appadmin /home/appadmin/*
-cp -a /vagrant/data/* /home/vagrant
+cp -a $INSTALL_DATA/dotfiles/* /home/vagrant
 
 # app folders
+
+sudo mkdir /var/www/randallrodakowski.com
+sudo mkdir /var/www/randallrodakowski.com/public_html
+sudo chgrp -R appadmin /var/www/randallrodakowski.com 
+sudo chown -R appadmin /var/www/randallrodakowski.com 
+
 sudo mkdir /app-data
+sudo mkdir /app-data/logs
+sudo mkdir /app-data/logs/cap-log
+sudo mkdir /app-data/logs/irc-log
 sudo mkdir /app-bin
 
-sudo chgrp appadmin /app-data
-sudo chgrp appadmin /app-bin
+sudo chgrp -R appadmin /app-data
+sudo chgrp -R appadmin /app-bin
 
-sudo chown appadmin /app-bin
-sudo chown appadmin /app-data
+sudo chown -R appadmin /app-bin
+sudo chown -R appadmin /app-data
 
 echo -e "\n"
