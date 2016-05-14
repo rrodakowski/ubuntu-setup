@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Instructions to use this script 
+#Instructions to use this script
 #
 # make sure the script is executable
 # modify mysql passwords
@@ -9,15 +9,15 @@
 #sudo ./ubuntu-setup.sh
 
 ###############################
-##### Repo additions/updates ## 
+##### Repo additions/updates ##
 ###############################
 
 #Add Repositories
 sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main"
 
 #Update the repositories
-sudo apt-get -y --force-yes update # Fetches the list of available updates 
-sudo apt-get -y --force-yes upgrade # Strictly upgrades the current packages 
+sudo apt-get -y --force-yes update # Fetches the list of available updates
+sudo apt-get -y --force-yes upgrade # Strictly upgrades the current packages
 sudo apt-get dist-upgrade # Installs distribution updates (new ones), may install new pakcages or unintstall to satisfy dependecies i(careful)
 
 ###############################
@@ -26,7 +26,7 @@ sudo apt-get dist-upgrade # Installs distribution updates (new ones), may instal
 
 #Apache, mod-wsgi, MySQL and required packages installation
 
-sudo apt-get -y install apache2 mysql-client libapache2-mod-wsgi 
+sudo apt-get -y install apache2 mysql-client libapache2-mod-wsgi
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
@@ -54,7 +54,7 @@ fi
 ###############################
 
 #useful applications
-sudo apt-get -y install curl google-chrome-stable gimp geany terminator vim
+sudo apt-get -y install curl google-chrome-stable gimp terminator vim
 #allow me to read exfat file system (external usb harddrive)
 sudo apt-get -y install fuse exfat-fuse
 
@@ -90,7 +90,7 @@ sudo pip install kezmenu
 sudo pip install Pillow
 sudo pip install MySQL-Python
 sudo pip install feedparser
-sudo pip install flask 
+sudo pip install flask
 
 ###############################
 ##### User & Folder Setup #####
