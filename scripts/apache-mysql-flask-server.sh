@@ -100,17 +100,22 @@ sudo apt-get -y install postfix
 # git probably was installed to retrieve this setup script from github
 sudo apt-get -y install git
 
-# Installs for personal python applications
-sudo apt-get -y install python-pip
+# Software for image processing
 sudo apt-get -y install imagemagick
-# used for lxml, html cleaning, and other xml processing
-sudo apt-get -y install python-lxml
+
+# Python Package manager
+sudo apt-get -y install python-pip
+
 # python installs using pip
 sudo pip install oauth2
-sudo pip install Pillow
 sudo pip install MySQL-Python
 sudo pip install feedparser
 sudo pip install flask 
+# used for lxml, html cleaning, and other xml processing
+sudo pip install lxml
+# aws packages
+sudo pip install awscli
+sudo pip install boto3
 
 ###############################
 ##### User & Folder Setup #####
