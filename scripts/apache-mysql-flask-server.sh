@@ -111,6 +111,9 @@ sudo pip install oauth2
 sudo pip install MySQL-Python
 sudo pip install feedparser
 sudo pip install flask 
+sudo pip install SQLAlchemy
+sudo pip install flask-sqlalchemy
+
 # used for lxml, html cleaning, and other xml processing
 sudo pip install lxml
 # aws packages
