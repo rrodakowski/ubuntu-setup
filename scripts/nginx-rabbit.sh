@@ -45,18 +45,50 @@ sudo apt-get -y --force-yes upgrade # Strictly upgrades the current packages
 sudo apt-get dist-upgrade # Installs distribution updates (new ones), may install new pakcages or unintstall to satisfy dependecies i(careful)
 
 ###############################
-##### LAMP Software ###########
+##### Useful Software ###########
 ###############################
 
-#Apache, mod-wsgi required packages installation
+#nginx-light should be enough for our needs
 
-sudo apt-get -y install apache2 libapache2-mod-wsgi
+sudo apt-get -y install nginx-light
+
+# TODO: Automate the nginx configuration here
+# based it on:
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts
+
+# create www folders
+
+sudo mkdir /var/www/randallrodakowski.com
+sudo mkdir /var/www/randallrodakowski.com/html
+sudo chgrp -R appadmin /var/www/randallrodakowski.com
+sudo chown -R appadmin /var/www/randallrodakowski.com
+
+sudo mkdir /var/www/orangeshovel.com
+sudo mkdir /var/www/orangeshovel.com/html
+sudo chgrp -R appadmin /var/www/orangeshovel.com
+sudo chown -R appadmin /var/www/orangeshovel.com
+
+# copy nginx config files to proper directory
+sudo cp $INSTALL_DATA/www-config/orangeshovel.com /etc/nginx/sites-available/orangeshovel.com
+sudo cp $INSTALL_DATA/www-config/randallrodakowski.com /etc/nginx/sites-available/randallrodakowski.com
+
+# enable server blocks
+sudo ln -s /etc/nginx/sites-available/orangeshovel.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/randallrodakowski.com /etc/nginx/sites-enabled/
+
+# remove the default server block
+sudo rm /etc/nginx/sites-enabled/default
+
+# TODO: need to automate this configuration change using sed
+# change /etc/nginx/nginx.conf
+# We just need to uncomment one line. Find and remove the comment from this:
+# server_names_hash_bucket_size 64;
 
 #Restart all the installed services to verify that everything is installed properly
 
 echo -e "\n"
 
-service apache2 restart > /dev/null
+sudo service nginx restart > /dev/null
 
 echo -e "\n"
 
@@ -77,7 +109,7 @@ sudo apt-get update
 sudo apt-get -y install rabbitmq-server
 sudo rabbitmq-plugins enable rabbitmq_management
 
-#The following commands set the rabbitMQ root password to MYPASSWORD123 
+#The following commands set the rabbitMQ root password to MYPASSWORD123
 
 sudo rabbitmqctl add_user appadmin MYPASSWORD123
 sudo rabbitmqctl set_user_tags appadmin administrator
@@ -115,9 +147,11 @@ sudo apt-get -y install python-pip
 # python installs using pip
 sudo pip install oauth2
 sudo pip install feedparser
-sudo pip install flask
+
 # used for lxml, html cleaning, and other xml processing
 sudo pip install lxml
+sudo pip install SQLAlchemy
+
 # aws packages
 sudo pip install awscli
 sudo pip install boto3
@@ -135,12 +169,7 @@ add_user randall
 shopt -s dotglob
 cp -a $INSTALL_DATA/dotfiles/* /home/vagrant
 
-# app folders
-
-sudo mkdir /var/www/randallrodakowski.com
-sudo mkdir /var/www/randallrodakowski.com/public_html
-sudo chgrp -R appadmin /var/www/randallrodakowski.com
-sudo chown -R appadmin /var/www/randallrodakowski.com
+# create batch appliation folders
 
 sudo mkdir /app-data
 sudo mkdir /app-data/logs
