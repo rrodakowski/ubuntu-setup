@@ -147,6 +147,7 @@ sudo apt-get -y install python-pip
 # python installs using pip
 sudo pip install oauth2
 sudo pip install feedparser
+sudo pip install pyyaml
 
 # used for lxml, html cleaning, and other xml processing
 sudo pip install lxml
