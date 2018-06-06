@@ -5,7 +5,7 @@
 # make sure the script is executable
 # modify mysql passwords
 # comment out packages that you may or may not need
-#
+# change install paths to directories that make sense
 
 export INSTALL_HOME=/opt
 export INSTALL_DATA=/vagrant/data
@@ -17,7 +17,7 @@ export INSTALL_DATA=/vagrant/data
 function add_user
 {
     echo "adding user $1"
-    sudo adduser $1 -g appadmin
+    sudo adduser $1 -ingroup appadmin
     mkdir /home/$1/.ssh
     chmod 700 /home/$1/.ssh
     touch /home/$1/.ssh/authorized_keys
