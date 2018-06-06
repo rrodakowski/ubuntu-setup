@@ -27,6 +27,8 @@ function add_user
     # copy dot files
     shopt -s dotglob
     cp -a $INSTALL_DATA/dotfiles/* /home/$1
+    chown $1 .*
+    chgrp appadmin .*
 }
 
 ###############################
