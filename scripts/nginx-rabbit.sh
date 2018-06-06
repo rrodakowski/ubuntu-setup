@@ -18,10 +18,6 @@ function add_user
 {
     echo "adding user $1"
     sudo adduser $1 -ingroup appadmin
-    mkdir /home/$1/.ssh
-    chmod 700 /home/$1/.ssh
-    touch /home/$1/.ssh/authorized_keys
-    chmod 600 /home/$1/.ssh/authorized_keys
     sudo adduser $1 sudo
     sudo echo "$1:changeme" | sudo chpasswd
     # copy dot files
