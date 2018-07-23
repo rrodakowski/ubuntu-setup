@@ -60,11 +60,13 @@ sudo mkdir /var/www/randallrodakowski.com
 sudo mkdir /var/www/randallrodakowski.com/html
 sudo chgrp -R appadmin /var/www/randallrodakowski.com
 sudo chown -R appadmin /var/www/randallrodakowski.com
+echo "orangeshovel hello world" | sudo tee /var/www/randallrodakowski.com/html/index.html
 
 sudo mkdir /var/www/orangeshovel.com
 sudo mkdir /var/www/orangeshovel.com/html
 sudo chgrp -R appadmin /var/www/orangeshovel.com
 sudo chown -R appadmin /var/www/orangeshovel.com
+echo "randallrodakowski hello world" | sudo tee /var/www/orangeshovel.com/html/index.html
 
 # copy nginx config files to proper directory
 sudo cp $INSTALL_DATA/www-config/orangeshovel.com /etc/nginx/sites-available/orangeshovel.com
